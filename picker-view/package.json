@@ -2,17 +2,27 @@
 {
   "name": "react-native-picker-view",
   "version": "1.0.0",
-  "description": "",
+  "description": "Cross platform Picker component for IOS and Android",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/surajitsarkar19/react-native-picker-view.git"
+  },
   "keywords": [
-    "react-native"
+    "NumberPicker",
+    "react-native-picker",
+    "Picker"
   ],
-  "author": "",
-  "license": "",
+  "author": "Surajit Sarkar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/surajitsarkar19/react-native-picker-view/issues"
+  },
+  "homepage": "https://github.com/surajitsarkar19/react-native-picker-view#readme",
   "peerDependencies": {
-    "react-native": "^0.41.2"
+    "react-native": "^0.50.0"
   }
 }
