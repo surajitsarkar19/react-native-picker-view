@@ -9,8 +9,6 @@ import com.facebook.react.uimanager.events.EventDispatcher;
 import com.facebook.react.uimanager.UIManagerModule;
 import com.facebook.react.common.SystemClock;
 import com.facebook.react.bridge.ReadableArray;
-import com.facebook.react.uimanager.UIProp;
-import com.facebook.react.uimanager.ViewProps;
 
 import java.lang.Integer;
 import java.lang.String;

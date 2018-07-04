@@ -14,7 +14,7 @@ public class SRSPickerViewPackage implements ReactPackage {
     @Override
     public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) { return Collections.emptyList(); }
 
-    @Override
+    // Deprecated from RN 0.47
     public List<Class<? extends JavaScriptModule>> createJSModules() {
         return Collections.emptyList();
     }

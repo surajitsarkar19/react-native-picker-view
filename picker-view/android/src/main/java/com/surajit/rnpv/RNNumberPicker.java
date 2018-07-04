@@ -4,11 +4,7 @@ import javax.annotation.Nullable;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.NumberPicker;
-import android.widget.EditText;
-import android.graphics.Color;
 
 public class RNNumberPicker extends NumberPicker {
 

@@ -19,8 +19,16 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
+import NumberPicker from "react-native-picker-view"
+
 type Props = {};
 export default class App extends Component<Props> {
+
+  constructor(props){
+    super(props)
+    this.state={index:1}
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -33,6 +41,16 @@ export default class App extends Component<Props> {
         <Text style={styles.instructions}>
           {instructions}
         </Text>
+
+          <NumberPicker
+              values={["Kolkata","Delhi","Hydrabad","Banglore","Pune"]}
+              selected={this.state.index}
+              style={{width:100,height:200}}
+              onSelect={(value,index) => {
+                  console.log('onSelect', value, index);
+                  this.setState({index})
+              }}
+          />
       </View>
     );
   }

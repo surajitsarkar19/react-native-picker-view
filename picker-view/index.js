@@ -1,73 +1,85 @@
 
-import React, { Component, PropTypes } from 'react';
-import { requireNativeComponent, View} from 'react-native';
+import React, { Component } from 'react';
+import { requireNativeComponent, View, Picker, Platform} from 'react-native';
+import PropTypes from 'prop-types';
 
-var REF_PICKER = 'numberpicker';
+import AndroidNumberPicker from "./AndroidNumberPicker"
 
-class NumberPicker extends Component {
+
+export default class NumberPicker extends Component {
+
+    static defaultProps = {
+        selected: 0
+    };
+
+    static propTypes = {
+        ...View.propTypes,
+        selected: PropTypes.number,
+        values: PropTypes.arrayOf(PropTypes.string).isRequired,
+        onSelect: PropTypes.func,
+    };
 
     constructor(props) {
         super(props);
-        this.state = this._stateFromProps(props);
-        this._onChange = this._onChange.bind(this);
-    }
-
-    componentWillReceiveProps(props) {
-        this.props = props;
-        this.setState(this._stateFromProps(props))
-    }
-
-    _stateFromProps(props) {
-        return {
-            selectedIndex: props.selectedIndex,
-            values: props.values
-        };
-    }
-
-    _onChange(event) {
-
-        if (this.props.onSelect)
-            this.props.onSelect(event.nativeEvent.value);
-
-        if (this.refs[REF_PICKER] && this.state.selectedIndex !== event.nativeEvent.value)
-            this.refs[REF_PICKER].setNativeProps({selected: this.state.selectedIndex});
-
     }
 
     render() {
-        var { values, style, ...otherProps } = this.props;
+        return Platform.select({
+            ios: this.renderIOS(),
+            android: this.renderAndroid()
+        });
+    }
 
+    renderAndroid(){
+        let { values, style, selected, onSelect } = this.props
+        let height = this.getHeightFromStyle(style);
         return (
-            <NativeNumberPicker
-        ref={REF_PICKER}
-        selected={this.state.selectedIndex}
-        values={this.state.values}
-        onChange={this._onChange}
-        style={[{height:this.props.height}, style && style]}
-        {...otherProps}
-        />
-    );
+            <AndroidNumberPicker
+                values={values}
+                style={[style]}
+                selected={selected}
+                height={height}
+                onSelect={(index)=>{
+                    onSelect(values[index],index);
+                }}
+            />
+        );
+    }
+
+    getHeightFromStyle(style){
+        let height = 200;
+        if(!style)
+            return height;
+        if(Array.isArray(style)){
+            style.some((item)=>{
+                if(item.hasOwnProperty("height")){
+                    height = item.height;
+                    return true;
+                }
+            });
+        } else{
+            if(style.hasOwnProperty("height")){
+                height = style.height;
+            }
+        }
+        return height;
+    }
+
+    renderIOS(){
+        let { values, style, selected, onSelect } = this.props;
+        let items = [];
+        values.forEach((value,index)=>{
+           items.push(
+               <Picker.Item label={value} value={value} key={index} />
+           )
+        });
+        return (
+            <Picker
+                selectedValue={values[selected]}
+                style={[style]}
+                onValueChange={onSelect}>
+                {items}
+            </Picker>
+        );
     }
 }
-
-NumberPicker.defaultProps  = {
-    selectedIndex: 0,
-    height: 100,
-};
-
-NumberPicker.propTypes = {
-    ...View.propTypes,
-    height: PropTypes.number,
-    selectedIndex: PropTypes.number,
-    values: PropTypes.arrayOf(PropTypes.string).isRequired,
-    onSelect: PropTypes.func,
-};
-
-var NativeNumberPicker = requireNativeComponent('SRSPickerView', NumberPicker, {
-    nativeOnly: {
-        onChange: true,
-        selected: true,
-    }
-});
-
-module.exports = NumberPicker;

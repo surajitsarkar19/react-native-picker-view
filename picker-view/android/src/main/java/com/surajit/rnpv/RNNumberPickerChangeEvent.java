@@ -11,7 +11,7 @@ public class RNNumberPickerChangeEvent extends Event<RNNumberPickerChangeEvent> 
     private final int mValue;
 
     public RNNumberPickerChangeEvent(int id, long uptimeMillis, int value) {
-        super(id, uptimeMillis);
+        super(id);
         mValue = value;
     }
 
