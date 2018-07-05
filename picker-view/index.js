@@ -9,7 +9,8 @@ import AndroidNumberPicker from "./AndroidNumberPicker"
 export default class NumberPicker extends Component {
 
     static defaultProps = {
-        selected: 0
+        selected: 0,
+        enableInput: true
     };
 
     static propTypes = {
@@ -17,6 +18,7 @@ export default class NumberPicker extends Component {
         selected: PropTypes.number,
         values: PropTypes.arrayOf(PropTypes.string).isRequired,
         onSelect: PropTypes.func,
+        enableInput: PropTypes.bool
     };
 
     constructor(props) {
@@ -31,7 +33,7 @@ export default class NumberPicker extends Component {
     }
 
     renderAndroid(){
-        let { values, style, selected, onSelect } = this.props
+        let { values, style, selected, onSelect, enableInput } = this.props
         let height = this.getHeightFromStyle(style);
         return (
             <AndroidNumberPicker
@@ -39,6 +41,7 @@ export default class NumberPicker extends Component {
                 style={[style]}
                 selected={selected}
                 height={height}
+                enableInput={enableInput}
                 onSelect={(index)=>{
                     onSelect(values[index],index);
                 }}

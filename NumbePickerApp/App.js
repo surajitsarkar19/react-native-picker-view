@@ -26,7 +26,7 @@ export default class App extends Component<Props> {
 
   constructor(props){
     super(props)
-    this.state={index:1}
+    this.state={index:0}
   }
 
   render() {
@@ -46,6 +46,7 @@ export default class App extends Component<Props> {
               values={["Kolkata","Delhi","Hydrabad","Banglore","Pune"]}
               selected={this.state.index}
               style={{width:100,height:200}}
+              enableInput={false}
               onSelect={(value,index) => {
                   console.log('onSelect', value, index);
                   this.setState({index})

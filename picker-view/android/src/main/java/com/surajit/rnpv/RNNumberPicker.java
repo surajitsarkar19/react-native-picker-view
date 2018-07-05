@@ -5,6 +5,7 @@ import javax.annotation.Nullable;
 import android.content.Context;
 import android.text.InputType;
 import android.util.AttributeSet;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.NumberPicker;
 
@@ -40,9 +41,20 @@ public class RNNumberPicker extends NumberPicker {
 
     private void initView(){
         //disable the typing
-        EditText numberPickerChild = (EditText)getChildAt(0);
-        numberPickerChild.setFocusable(false);
-        numberPickerChild.setInputType(InputType.TYPE_NULL);
+        //enableNumberPickerManualEditing(this,false);
+    }
+
+    public void enableNumberPickerManualEditing(NumberPicker numPicker, boolean enable) {
+        int childCount = numPicker.getChildCount();
+
+        for (int i = 0; i < childCount; i++) {
+            View childView = numPicker.getChildAt(i);
+            if (childView instanceof EditText) {
+                EditText et = (EditText) childView;
+                et.setFocusable(enable);
+                return;
+            }
+        }
     }
 
     public void setOnChangeListener(@Nullable OnChangeListener onValueChangeListener) {

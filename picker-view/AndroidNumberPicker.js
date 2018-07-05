@@ -7,6 +7,7 @@ export default class AndroidNumberPicker extends Component {
     static defaultProps = {
         selectedIndex: 0,
         height: 200,
+        enableInput: true
     };
 
     static propTypes = {
@@ -15,6 +16,7 @@ export default class AndroidNumberPicker extends Component {
         selectedIndex: PropTypes.number,
         values: PropTypes.arrayOf(PropTypes.string).isRequired,
         onSelect: PropTypes.func,
+        enableInput: PropTypes.bool
     };
 
     constructor(props) {
