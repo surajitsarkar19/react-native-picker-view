@@ -3,7 +3,9 @@ package com.surajit.rnpv;
 import javax.annotation.Nullable;
 
 import android.content.Context;
+import android.text.InputType;
 import android.util.AttributeSet;
+import android.widget.EditText;
 import android.widget.NumberPicker;
 
 public class RNNumberPicker extends NumberPicker {
@@ -23,13 +25,25 @@ public class RNNumberPicker extends NumberPicker {
 
     public RNNumberPicker(Context context) {
         super(context);
+        initView();
     }
 
     public RNNumberPicker(Context context, AttributeSet attrs) {
         super(context, attrs);
+        initView();
     }
 
-    public RNNumberPicker(Context context, AttributeSet attrs, int defStyle) {  super(context, attrs, defStyle); }
+    public RNNumberPicker(Context context, AttributeSet attrs, int defStyle) {
+        super(context, attrs, defStyle);
+        initView();
+    }
+
+    private void initView(){
+        //disable the typing
+        EditText numberPickerChild = (EditText)getChildAt(0);
+        numberPickerChild.setFocusable(false);
+        numberPickerChild.setInputType(InputType.TYPE_NULL);
+    }
 
     public void setOnChangeListener(@Nullable OnChangeListener onValueChangeListener) {
         setOnValueChangedListener(
