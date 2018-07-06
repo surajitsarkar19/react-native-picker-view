@@ -37,9 +37,26 @@
 
 ## Usage
 ```javascript
-import SRSPickerView from 'react-native-picker-view';
+import Picker from 'react-native-picker-view';
 
 // TODO: What to do with the module?
-SRSPickerView;
+<Picker
+              values={["Kolkata","Delhi","Hydrabad","Banglore","Pune"]}
+              selected={this.state.index}
+              style={{width:100,height:200}}
+              enableInput={false}
+              onSelect={(value,index) => {
+                  console.log('onSelect', value, index);
+                  this.setState({index})
+              }}
+          />
 ```
+
+##Sample Output
+###Android
+###IOS
+
+##props
+
+####
   
