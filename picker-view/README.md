@@ -54,9 +54,12 @@ import Picker from 'react-native-picker-view';
 
 ##Sample Output
 ###Android
+<br>
+<img src="https://raw.githubusercontent.com/surajitsarkar19/react-native-picker-view/master/images/android.png" width="50%"></img> 
+<br/>
 ###IOS
 
 ##props
 
-####
+
   
