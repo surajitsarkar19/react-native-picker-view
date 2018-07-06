@@ -71,7 +71,7 @@ It is the index of the item that needs to be selected in Picker view. It is a 0 
 It is a boolean flag that is determined whether to activate keyboard input in Picker view. This flag is used only for android. 
 
 #### onSelect
-It is a callback function, which is called from the library when an selected item in Picker is changed.
+It is a callback function, which is called from the library when a selection is changed.
 Its signature is :--
 ```javascript
 (selectedValue, selectedIndex) => {
