@@ -41,15 +41,15 @@ import Picker from 'react-native-picker-view';
 
 // TODO: What to do with the module?
 <Picker
-              values={["Kolkata","Delhi","Hydrabad","Banglore","Pune"]}
-              selected={this.state.index}
-              style={{width:100,height:200}}
-              enableInput={false}
-              onSelect={(value,index) => {
-                  console.log('onSelect', value, index);
-                  this.setState({index})
-              }}
-          />
+      values={["Kolkata","Delhi","Hydrabad","Banglore","Pune"]}
+      selected={this.state.index}
+      style={{width:100,height:200}}
+      enableInput={false}
+      onSelect={(value,index) => {
+          console.log('onSelect', value, index);
+          this.setState({index})
+      }}
+  />
 ```
 
 ## Sample Output
@@ -61,5 +61,23 @@ import Picker from 'react-native-picker-view';
 
 ## props
 
+#### values
+Array of values. Array item must be of type string.
+
+#### selected
+It is the index of the item that needs to be selected in Picker view. It is a 0 based index. Index less than zero is not supported.
+
+#### enableInput (Android Only)
+It is a boolean flag that is determined whether to activate keyboard input in Picker view. This flag is used only for android. 
+
+#### onSelect
+It is a callback function, which is called from the library when an selected item in Picker is changed.
+Its signature is :--
+```javascript
+(selectedValue, selectedIndex) => {
+   //selectedValue is the value of the selected item.
+   //selectedIndex is the index of the item. 
+}
+```
 
   
