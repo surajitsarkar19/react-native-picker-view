@@ -1,6 +1,6 @@
 {
   "name": "react-native-picker-view",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Cross platform Picker component for IOS and Android",
   "main": "index.js",
   "scripts": {
@@ -13,8 +13,14 @@
   "keywords": [
     "NumberPicker",
     "react-native-picker",
-    "Picker",
-    "react native picker"
+    "picker",
+    "react native picker",
+	"react native",
+	"number picker",
+	"select",
+	"picker view",
+	"view",
+	"items"
   ],
   "author": "Surajit Sarkar",
   "license": "MIT",
