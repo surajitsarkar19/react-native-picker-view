@@ -1,6 +1,6 @@
 {
   "name": "react-native-picker-view",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Cross platform Picker component for IOS and Android",
   "main": "index.js",
   "scripts": {
@@ -16,6 +16,7 @@
     "picker",
     "react native picker",
     "react native",
+    "react native select",
     "number picker",
     "select",
     "picker view",

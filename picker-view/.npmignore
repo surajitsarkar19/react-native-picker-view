@@ -46,3 +46,4 @@ buck-out/
 build
 images/
 package-lock.json
+publish.bat
