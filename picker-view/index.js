@@ -39,7 +39,7 @@ export default class NumberPicker extends Component {
             <AndroidNumberPicker
                 values={values}
                 style={[style]}
-                selected={selected}
+                selectedIndex={selected}
                 height={height}
                 enableInput={enableInput}
                 onSelect={(index)=>{
